@@ -1,0 +1,67 @@
+Capitulo 4 navathe 
+
+Por que o modelo relacional fez e faz tanto sucesso?
+	-Linguagem SQL 
+		-Structured Query language
+		-IBM de berço(SEQUEL para atender R------>db2)
+		-Linguagem padrão de mercado
+			isto torna a migração de um banco de dados para outro muito facil 
+			estimula competitividade
+		Extensoes do SQL
+			Comandos particulares de cada plataforma
+		Versões 
+			Ela e regulamentada por padroes. a ISO e a ANSI sao resposnsaveis por isso
+		Caracteristicas
+			Linguagem decalrativa 
+				para se executar uma query , nao especifica como a query sera executada, apenas define-se o que se quer
+		Terminologia 
+			Relação é tabela 
+			Tupla é uma linha  
+			Atributo é coluna
+		O sql aborda a DDL(data definition language) e a DML(data management language)
+		Esquema de SQL 
+			 A definição, a estrutura,as regras as restricoes, as regras de integridade. 
+				armazenados no catálogo
+					tabelas do sistema que ele usa para definir outras tabelas do sistema 
+		CREATE TABLE 
+			gera fisicamente uma tabela. cria um arquivo fisico 
+		CREATE VIEW 
+			Maneira de se visualizar uma tabela. Nao gera um arquivo fisico persistente
+		ALTER TABLE 
+			Aletera a ESTRUTURA da tabela , nao os dados
+		UPDATE 
+			Aletera os DADOS da tabela 
+		FOREING KEY 
+			é um atributo da tabela que em uma outra tabela é chave primaria 
+			integridade referencial!!!!!!!!!!!
+			Cuidado ao definir a chave estrangeira pois a outra tabela pode nao ter sido criado 
+			Relacionamento 
+				1:m(1 departamento tem varios funcionarios), m:1(um funcionario pertence a um departamento )
+		tipo de dados
+			INTEGER , INT e SMALL INT 
+			DECIMAL(i,j)
+				i é a precisão , a quantidade de digito (decimal+inteiro )
+				j é a escala, a quantidade de casas decimais 
+			VARCHAR(n)
+				caracteres com tamanho variavel. O tamanho colocado no parametro nao necessariamente e o tamanho do campo. Economiza espaço em disco 
+			CHAR(n)
+				o tamanho do caractere é fixo, nao variavel 
+			BIT()
+				literal--->constatne 
+					B'numero_binario' 
+					area que voce esta defininido diretamente no codigo. sao os numeros , textos, etc nao guarado em variaves. 
+				o dado e do tipo binario 
+			BOOLEAN 
+				temo  null que fode
+			DATE  
+				dia mes ano ou o contrario 
+				DATE'data'
+			TIME(i)
+				i são as fracoes de segundo 
+				hora minuto e segundo
+			add/sub datas 
+				date_add/sub(uma date,INTERVAL quantiade YEAR,HOURS,etc)
+			TIMESTAMP 
+				armazena data e hora ao mesmo tempo.usado para logs
+			NOT NULL
+				
