@@ -64,4 +64,21 @@ Por que o modelo relacional fez e faz tanto sucesso?
 			TIMESTAMP 
 				armazena data e hora ao mesmo tempo.usado para logs
 			NOT NULL
-				
+			DEFAULT 
+				seta um valor padrao em caso dele nao estiver informado 
+			PRIMARY KEY 
+				naturalmente nao nula 
+			chave primaria composta
+				mais de um atributo como chave 
+			chave unica 
+				as chaves candidatas que sobraram  UNIQUE
+			Integridade referencial 
+				regra de relacionamento entre duas tableas. a cahve primaria de uma é um campo estrangeiro outra 
+				foreign key pode ser null
+				foreignkey(nomedocamponestatabela) references tabela(nomedocamponaoutratabela)
+				pode se deletear a chave estrangeira da tabela referenciada? 
+					depende da regra da integridade referencial 
+					ex:
+						on delete restrict on updatte restrict//padrao
+						on delete set null // na hora de se deletar se coloca nulo
+						on delete cascade//treta. deleta todos conectados a ele
