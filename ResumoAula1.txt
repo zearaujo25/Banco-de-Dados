@@ -1,0 +1,124 @@
+Livros-------> Navathe+didático, Corsi +Denso, Date(Focado em main frame :D),Ramakrishnan
+login e senha no site: Ra,#Ra
+email do professor: aparecidovfreitas@gmail.com
+Conceitinhos *
+	Persistencia*************(Pesquisar)
+		Salvar os dados sem que os perca mesmo após a suspensão do programa
+	Funcoes do SO
+		Gerencia de memoria
+		Gerencia de processos
+		Sistemas de arquivos
+			Hierarquicos 
+	Argumentos(args)
+		Dados passados pelo usuario pela linha de comando
+
+	Consistencia 
+		Dados que representam a mesma coisa possuem valores diferenstes, ex: aruivos diferentes com o mesmo produto e diferenstes preços
+	Gerencia dos dados
+		Garantir que os dados estão ok, em questao de integridade e consistencia 
+	Redundancia 
+		Informação repetida 
+		Redundancia controlada
+	Programas transacionais
+		Faz TUDO que tem que fazer OU NADA para evitar a inconsistencia de dados
+		unidade atomica 
+	BNF
+		Backus Naum Form
+		meta linguagem
+			linguagem que serve para descrever outra linguagem(Cmpiladores)
+	Tipos de dados	
+		determina o conjunto de valores que o dado pode assumir
+		o formato do dado
+	Estado do banco de dados ou instancia dos dados
+		conteudo do banco de dados em um determinado instante, instancia 
+		
+		
+Unidade1---------Introdução (Navathe e Corsi)
+	
+	Qual a difrença entre arquivos e Bancos de Dados?
+		Arquivo (Pesquisar mais a fundo)
+			-Esta disponivel em qualquer sistema operacional 
+			-Serve para armazenar informações 
+			-Baseia-seda Persistencia de informações*
+			-Manipulados e mantidos por programas do SO pertencentes ao sistema de arquivos
+			-Durável por permanecer disponivel após a execução do programa 
+			-Pode ser usado para armazenamento dos dados 
+			-Desvantagens ao se usar arquivos como maneira de armazenar dados 
+				-Infraestrutura
+					Escalabilidade
+					segurança
+					Desempenho
+				-Possivel perda de consistencia* e integridade dos dados -------->Fodeu com a gerencia dos dados
+				-Concorrência 
+					Pessoas acessando o banco de dados ao mesmo tempo 
+				-dificuldade Gerencia dos dados
+				-sem controle de redundancia dos dados
+				-sem filtro aos dados chaves ex salario nao pode ser visto por ususarios, mas outras sim---->VISAO DOS DADOS*******
+		
+		Sistema gerenciador de Banco de Dados	(DBMS)
+			-Coleção de programas, um software que desepenha uma serie de funções, principalmente de gerencia, em cima dos arquivos de bacos de dados 
+				TOMA CONTA DOS ARQUIVOS DE DADOS, GERENCIA OS ARQUIVOS
+				Controle de concorrencia,acesso,transacao,recuperacao,etc
+				Usa o catalogo para esse controle 
+			-Fornece
+				-meios para definir o banco de dados
+					Os dadso, as estruturas, as regras de integridade de dominio (possiveis valores)dos dados
+				-manipular o banco de dados
+				
+			-Catálogo(dicionario)
+				-arquivo de controle
+				-arquivo do GERENCIADOR do banco de dados que possui as definições necessarias, a descricao , a estrutura,as regras, as chaves,etc dos dados armazenados
+				-aruivo especial que possui a DESCRICAO do dados
+					META DADO -----> Dados que definem a estruturas de outros dados
+				-Também é um banco de dados, particular do dvms
+			-Sistema caros e complexos
+			-Evita todos os problemas acima 
+			-Possui esquemas de protecao e manutencao dos bancos de dadso(view)
+		
+			-Aplicações
+					financeira, bancario,multimidia ,sistemas de inormaçoes geograficas,data warehouses(grandes volumes de dados para tomadas de decisao--->OLAP),oltp(sistemas transacionais)
+		Banco de dados
+			Conjunto de arquivos cujos dados estão relacionados entre si
+				Dado--->informacao que representa um fato real
+			Trasacao
+				programa que executa , acessando dados armazenados no gerenciador dos dados, que garante a consistencia dos dados ao se alterar os dados
+					Mesmo que seja apenas uma consulta, a conssitencia ainda e uma preocupacao pois deve ser considerado a concorrencia 
+			Como se cria um banco de dados
+				ddl(linguagem generica do banco de dados)
+					data definition language
+					linguagem que o dbsm que disponibiliza para o usuario criar o banco de dados
+					Linguagem que , ao ser compliada, possui as definições dos  tipos,restriçoes (constraint,regras,restriçoes ) dos dados. O resultado da execução da ddl é gravado no catalogo
+						nota : regras semanticas NAO se deve colocar no banco de dados, e sim no programa. Regras de banco de dados
+					ex:SQL(relacional),dl1(Hierarquicos)
+				dbms nos fornece mecanismos
+		Sistemas de banco de dados
+			É o ambiente como um todo, é a soma dos programas de aplicação /consultas(podem ser disponibilizados pelo software dos bancos de dados ou programas proprios do usuarios)  utilizados pelos usuarios com o sistema gerenciador de banco de dados,os meta dados e o banco de dados em si
+		
+				
+		Projeto do banco de dados
+			Levantamento dos requisitos
+				analisar as necessidades da aplicação , dos usuarios
+			projeto conceitual 
+				primeiro modelo do banco, definindo as estruturas e relacionamentos. 
+				feito em diagrama entidade relacionamento (desenho com os dados e os relacionamentos entre os dados).modelo conceitual. a preocupação não é o software, e sim a teoria encima daquele banco
+			projeto logico
+				ja se leva em conta o software gerenciador de banco de dados, o tipo de banco de dados(hierarquico ou relacional)
+				projeta as tabelas ou os ramos
+				criacao de ESQUEMAS armazenados no catalogo
+				ex workbench
+			Projeto físico
+				implementação do banco de dados , comeca a popular(colocar os dados) neste banco,criacao , definicao fisica
+		abordagem de banco de dados
+			Em arquivos normais, o proprio usuario define e implementa os arquivos. A estrutura dos dados é definido no proprio programa de aplicaçao
+			Em banco de dados, a definicao dos dados fica em um repositorio chamado catalogo 
+				isolamento dos dados ou independencia dos dados (do programa)
+					ex: view (filtro de colunas em uma tabela ). um programa tem uma view que enxega parcialmente as coluas tabelas. se nessa tabela uma nova coluna , o programa nao sdnte isso. os dados sao isolados da aplicacao 
+		Abstracao de dados	
+			capacidade do sistema em mostrar para o usuario apenas o necessario e esconder os detalhes. O usuario fica em uma camada mais abstratas
+			o banco de dados faz isso utilizando modelos de dados
+		Vantagens de banco de dados		
+			redundancia controlada (recomendado eliminar a redundancia)
+		Quando nao usar banco de dados
+			aplicaçoes simpes, monousuarias
+			sistemas de tempo real 
+			
