@@ -1,0 +1,133 @@
+Unidade 2- Arquitetura de Sistemas de Banco de Dados de Modelo relacional 
+
+
+
+
+Os primeiros sistemas da informacao nao tinham banco de dados, eram tudo com base em fitas e acesso direto a arquivos. O programa procurava do dado sequencialmente nas fitas
+	Depois vieram as unidades de discos, storages, começando a se trabalhar assim com sistemas em discos
+	VSAM- Método de acessos de mainframes de banco de dados baseados em manipulaçao direta nos arquivos 
+	Os DBMS erm monoliticos, centralizados no mainframes, junto com os bancos de dados
+	hoje em dia a arquitetura dos DBMS mudaram para uma arquitetura de duas camadas(Cliente servidor),um projeto modular, sendo que cada uma nao necessariamente estejam no mesmo local. Arquitetura distribuida
+
+Abstração de Dados	
+	É a capacidade de esconder os detalhes tecnicos do usuários através de camadas. Quanto mais alta a camada mais abstrata ,  menor os detalhes das camadas anteriores. 
+		Ex: Exception(Camada mais abstrata)------> RuntimeExceptiokn(Camada mais baixa, mais detalhada)----------> ArithmeticException.
+	O gerenciador  banco de dados precisa abstrair ao maximo seus dados para orgazinazar da melhor maneira seus dados quando esta interagindo com o usuários
+	Information Hiding 
+	Como o gerenciador prove essa abstracao 
+		é disponibilizada para o usuario atraves de modelos de banco de dadso, ou modelos de dados. E a maneira que ira implementar a aplicaçao. ligada a estrutura do banco de dados,definindo as estruturas, os relacionamentos , etc
+	Modelo de Dados
+		Modelo de Alto nivel ou conceitual(Camada mais abstrata)
+			se preocupa menos da maneira que o dado será armazenado, ou a ferramenta a ser utilizada. É masi ligada a estrutura geral do banco, nao importando a tecnica de implementa-lo 
+			Ferramenta: Diagrama entidade relacionamento 
+			Reçresenta um minimundo, uma parte da realidade que sera abstraida 
+			se preucupa entidades, atributos,e relacionamentos 
+				entidade. é a tabela 
+					é o objeto da realidade que será representado no bnaco de dados
+					ex: Aluno, professor, curso 
+				Atributos
+					Caracteristicas das entidades
+					ex: Rg,cpf,idade
+				Relacionamentos 
+					Associação entre entidades
+					ex: O professor tem varios aluno. Um curso tem varios professores
+				
+		Modelo de baixo nivel ou modelo fisico (Camada menos abstrata, mais baixa)
+			Esta ligada ao DBMS que será utilizado, mais ligado ao tipo de banco de dados (hierarquico,relacional,etc), como o dado será armazenado fisicamente 
+		Modelo 
+	Esquema de banco de dados
+		descricao dos dados que serao usados no DBMS, descricao das entidades do banco de dados
+	Instancia do banco de dados ou Estdado do banco de dados
+		É a confirguração do banco de dados, a maneira que ele se encontra em um dado momento 
+		A medida que o banco de dados e populado eleadquiri novas instancias 
+	Arquitetura de 3 Esquemas de banco de dados
+		nivel interno 
+			Estrutura de armazenamento fisico do banco de dados, é o modelo conceitual com muito mais detalhes  
+		nivel conceitual 
+			Todas as informações em um nivel mais abstratos. Corresponde a "tabelas " criadas.
+		novel externo 
+			maneira como cada usuario enxerga os dados. alguns usuarios tem mais privilegios que outros, e para se saber quem possui qual permissao existe uma linguagem de mapeamento do usuario para o nivel conceitual
+		A iteração entre e cada cada uma das camadas, o mapeamento, é feita através de linguagens
+			VDL(VIEW DESCRIPTION LENGUAGE)
+				mapeamento para visoes externas do usuarios. Faz a interação , o mapemanto do usuario com o modelo conceitual 
+			DDL(Data definition language)
+				Definicao do modelo conceitual do banco de dados 
+				Comandos para se definir um banco de dados, as tabelas
+				Ao serem compiladas, atualiza-se o catálogo 
+			SDL (Storage definition language )
+				Linguagem de Storagem. Define os detalhamento fisico de armazenamento, como será armazenado. 
+			DML(Data Manipulation language)
+				Operações de manipulçao dos daddos na tabela , uma vez criado. Delete, atualizam popula os bancos de dados
+			Na pratica, o SQL abrange todas essas linguagens.
+	SQL embedded 
+		Na maioria dos  programa de aplicação , como COBOL e JAVA, bibliotecas sao criadas ,que adapta a linguagem SQL para o ambiente, e na pre compilação traduz esses comando para a linguagem do ambiente 
+	Paradigma declarativo
+		Vocês apenas se passa um declaracao ,voce apenas diz o que quer , os detalhes de processo sao feitos pelo programa
+Modelo Relacional
+	mais usado nos dias de hoje em dia
+	Conceito surgiu dos anos 70
+	implementada a partir de 80
+	Base na teoria dos conjuntos 
+	Os dados sao vistos como tabelas , matematicamente uma tabela é uma relação 
+		cada linha representa um registro, e matematicamente é uma tupla. são informações de um fato
+			A primeira linha da tabela,o cabeçãlho representa os atributos. 
+		todos os elementos de uma coluna são de um mesmo tipo de dados.
+			Tipo dados
+				é o conjunto de valores que aquele dado pertence 
+			Dominio
+				Conjunto de valores atômicos que aquele tipo de dado pode pertencer
+					Atômicidade
+						a informação nao pode ser dividida. 
+				Principio da primeira forma normal 
+					Só deve haver valores atômicos no atributo de uma tabela
+					Se não houver atributos atomicos deve se fazer a normalização do banco de dado
+				integridade de dominio
+					regra associada aquele dominio 
+		Esquema do banco de dados é um conjunto de esquemas relacionais 
+		Esquema relacional 
+			indicados por R(A1,A2,.....),representa o nome de uma relação e uma lista de seus atributos 
+			Cada atributo possui um conjunto de valores chamado de dominio, representado por D(An)
+				A cardinalidade de um domínio são todos os elementos dele
+				Alguns valores de um atribudo não pertence ao domino por serem desconheccidos . para estes casos adota-se a nomeclatura NULL
+			A quatidade de atributos em uma relação é chamado aridade , ou grau.
+			Estado de uma relação
+				é a somatoria das tuplas pertencentes a ela,o conjunto das tuplas, são os registros.indicado por r(R)
+				Cardinalidade
+				qual o maximo valor de tuplas que uma relacao pode ter?
+					É o produto da cartesiano da cardinalidade de cada dominios.lembrar de permutação 
+				Pode haver atributos com domínios iguais?
+					sim. ex telefones
+				A relação é um CONJUNTO de tuplas
+					se uma relção tem um conjunto de tuplas, e outra tem as mesmas tuplas mas em outra ordem, entao elas sao relacoes identicas
+				Restrição de dominio		
+					intervalo de valores que o dominio pode assumir
+				Restrição de chave 
+					uma informação da tupla que faz a sua indentificação. é um atributo que nao se repetira em outras tuplas
+					pode haver várias chaves 
+					Suoper chave
+						conjunto de atributos ou COMBINAÇÃO de atributos ou atributos sozinhos que podem ser chaves. CHAVES EM POTENCIAL.
+						Chave composta
+						Super chave minima 
+							É uma superchave que se um atributo for retirado ela deixará de ser superchave 
+						Super chave maxima 
+							é a tupla com todos os atributos 
+					Chave candidata 
+						qualquer uma das superchave que pode ser usada para ser chave 
+					Chave primaria 
+						é uma das chaves candidatas escolhida. Recomenda-se usar uma chave minima. O banco de dados é modelado com base nelas
+						As outras chaves candidatas são chamadas de chaves unicas
+						
+			Esquema de um banco de dados 
+				é a soma de todos os esquemas de relação 
+			Estado de um banco de estado 
+				Soma de todas as tuplas de todas as relações
+			Estado válido 
+				Um estado do banco de dados que atendem as restrições 
+			Restrições de integridade 
+				Restrição de integriade de entidade:
+					chave primaria nao pode ser nula 
+				Restição de integridade referencial 
+					define chave estrangeira 
+						um atributo primario de uma relação se torna uma chave estrangeira de outra 
+			Operações de mudança de estado
+			Transação 
