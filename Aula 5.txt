@@ -1,0 +1,134 @@
+Unidade 5 - Áldebra relacional - Cap 6 navathe
+Como era a consulta de banco de dados?
+	Os dados armezenados em um HD e o gerenciador de banco de dados e responsavelpor administra as consultas neste banco. 
+	Os dados sao acessados utilizanod uma linguagem de consulta , no caso o SQL.
+	Quando se faz uma query , o sql gfaz um calculo relacional 
+
+Algebra relacional 
+	um fundamento matematico que fornece fundamento para a linguagem SQL. 
+	Nasceu antes do SQL 
+	Para se escrever uma query mais elaborada , deve-se conhcer algebra relacional 
+	Ajuda a medir o desempenho da consulta 
+
+Lembrando o capitulo 2, o modelo relacional 
+	banco de dados: um conjunto de arquivos relacionados, de tabelas no caso do modelo relacional, ou de relações
+	Há tambem associação entre as relações, há operações entre as tabelas tambem. 
+	As opreações encima das tabelas é feita a  partir da algebra relacional 
+	Uma projeção e um paarticionamento vertical (select colunas). Filtro de colunas 
+	Uma seleção é um partiocionamento horizontal (where condição) Filtro de linhas 
+	Outras operacoes: Interssecção, união , etc
+	Todas essas operações sao implementadas no sql, sao usadas na algebra relacional 
+	Propriedade do fechamento : Quando se opera com duas tabelas o resultado e uma nova tabela. 
+		Pode se fazer diversas operaçoes , fazer um encadeamento de relaçoes , por causa dessa propriedade 
+		Uma tabela vazia tambem e uma tabela
+		Vantagem: Pode se fazer operações muito complexas
+		Desvantagem: Quando a consulta e muito complexa deve se conhecer bem a algebra relacional para se entender a consulta
+
+Para que se usa a algbra relacional ?
+	Ela fornece a base teorica para o modelo relacional e o SQL 
+	Ela e usada como base para implementacao e otimizacao de consultas em sql
+	O DMS tambem usa algebra relacional nos modulos internos dele
+
+Calculo relacional 
+	Complemento da algebra relacional 
+	Possui um nivel mais alto e se baseia em algebra relacional 
+	Se parece mais com o sql pois é uma linguagem declarativa , muito proximo do SQL
+	BASEADO NO PARADIGMA DECLARATIVO
+
+Operacoes da Algebra Relacional 
+	dois grandes grupos:
+		Operacoes baseadas em conjuntos 
+			uniao interssecção , diferença, produto cartesiano 
+		operações baseadas em banco de dados relacionais 
+			seleção, projeção e junção 
+			
+Operacoes relacionais Unarias 
+	opperacoes associadas a uma unica tabela 
+	
+	Seleçao(sigma) ou operação sigma
+		Partição horizontal na tabelas(seleciona linhas da tabela)
+		Existe uma condição associada a operação 
+		Para cada linha da tabela sera aplicada a condição da operacao sigma , se bnater pega, se nao proximo
+		mexe na cardinalidade
+		sintaze:	sigma  condição_booleana_com_os_atributos (Resultado de operaçoes entre tabelas)
+		!= ------> <>
+		ex: sigma depto=345 (funcionario) 
+		Observações 
+			Operação unaria (envolve uma tabela apenas, mas a tabela pode ser resultado de outras operacoes)
+			O grau da tabela resultante é o mesmo da tabela parametro pois nao se faz o filtro dos atributos 
+			A quantidade dwe tuplas poderá ser alterado, sendo menor ou igual da tabela parametro
+			a fração de tuplas selecionadas sao chamadas de seletividade da condição 
+			No sql é especidficado pelo Where
+		Propriedades
+			COMUTATIVA
+				A ordem interfere no desempenho?SIM
+				Podem ser substituidas por uma unica operação sigma com um AND
+	Projeçao ou operação pi
+		Sintaxe : pi lista_de_atributos (tabela de parametro)
+		Propriedades
+			A lista de atributos e uma sublista dos atributos da tabela parametro
+			Define uma lsita ordenada, ou seja , a ordema das colunas depende da ordem da sublista
+			Se a chave nao estiver presente na lista, o  resultado podera ter linha duplicada, pois e ela que garante a unicidade das tuplas. 
+			se tiver linhas duplicadas o operador pi ja elimina. no sql a eliminação é opcional com a clasula DISTINCT
+			elaelimina as duplicads por que o modelo relacional nao deve ser ferido 
+			Se na lista possuir  uma superchave, a tabela teraa mesma cardinalidade. mas se ela nao possuir a chave, a cardinalidade podera ser menor
+			NAO E COMUTATIVO 
+		No sql é o SELECT
+	
+	Rename ou operador ro
+		Pode se fazer renomeação apos uma operação 
+		Sintaxes possiveis:
+			Ro.S(R)= Renomeia a tabela R para S
+			RO(B1,B2,B3....Bn)(R)= Renomeia os atributos 
+			Ro.S(B1,B2,B3...Bn)(R) faz os dois anteriores 
+		No SQL o rename é a clasula AS
+	Sequencia de operaçoes 
+		Pode se fazer declaraçoes compostas.
+
+Operaçoes com base na teoria dos conjuntos , relacoes binarias
+	Restrição: Compatibilidade de tipo
+		Se nao houver a mesma compatibilidade (aridade ou grau ), nao e possvel realizar as operacoes. Alem disso , cada atributo deve ter o mesmo dominio 
+	Uniao 
+		Soma todas as tuplas das duas tebelas. 
+		Pode haver tuplas duplicadas, mas elas sao eliminadas na algebra relacional 
+	Interssecção 
+		Somente tuplas que aparecem nas duas tabelas
+	Diferença ou subtração 
+		O que está em uma tabela e o que nao esta em outra 
+	Observaçoes 
+		Uniao e interssecção são operações comutativas 
+		Uniao e interssecção sao associativas, sao operacoes enarias 
+		Diferenca nao e comutativa 
+		Interssecção pode ser escrita como uniao e diferença 
+	No SQL sao utilizadas por UNION, INTERSECT e EXCEPT, na pratica e usado mais o union. As linhas duplicadas nao sao elimniadas no SQL utilizando o UNION ALL. Para eliminar as duplicadas so usar o comando sozinhio
+	
+	Produto Cartesiano ou Cross-join
+		Todas as combinaçoes possiveis das tuplas de duas tabelas.
+		Observações:
+			Grau da nova tabela = soma dos graus das duas tabelas
+			Cardinalidade sera o produto das cardinalidades
+			Na pratica nao tem muita utilidade, mas tem uma importancia para entender a opreção join
+	
+	Operacao Junção ou Join
+		Representado por uma gravata borboleta na algebra relacional
+		SubConjunto de um produto Cartesiano , e a seleção + produto cartesiano , sigma+ produto cartesiano
+		Produto carteasiano com um filtro
+		O grau da juncao e a soma dos graus das duas tabelas
+		A cardinalidade depende da condição proposta
+		No SQL  usa-se o join, que faz tres cosias: produto cartesuiano , depois uma seleção depois uma projeçãio
+		Observaçoes 
+			Toda vez que a condiçao for verdadeira , a combinaçao de linhas vai para o join 
+			As condiçoes sao booleanas
+			Juncao theta: as linhas que nao sao aceitas elas sao descartadas do join.  Quando a combinacao der um valor falso, ha um descarte.
+			na pratica o join mais utilizado e quando um valor de um atributo na tabela e igual a um atributo em outra tabela. essa operacao e chamada de EQUIJOIN. Join com sinal de igualdade
+				Natural Join 
+					Equijoin com atributos comparados de mesmo nome. 
+					Sintaxe:Tabela1*Tabela 2
+		Outer Join 
+			Join externo, joins que podem levar em conta linhas que nao atendem ao criterio de pesquisa
+				Left Outer Join
+					Vai selecionar todos que atendem a condicao e vai manter as linhas da tabela da esquerda , tornadno nulls os atributos nao relacionados entrer as tabelas 
+				Right Outer Join 
+					Faz a mesma coisa para a tabela da direita
+				Full outer join 
+					Os dois casos 
