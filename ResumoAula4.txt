@@ -1,0 +1,46 @@
+Aula 4- Processamento de Consultas em sql
+	FUNCOES BUILT-IN----> funcoes que sao definidas por 
+	atributo derivado----> uma informacao que e obtida a partir dos atributos armazenados na tabela, tambem chamado de atributo clculado 
+	linhas duplicadas: o modelo relacional nao permite repeticao de valores mas algumas querys retornam linhas duplcadas
+	O resultado da query pode ser verdadeiro falso ou desconhecido
+	testes de comparacao (=,<>,<,<=,>,>=)
+	condicoes compostas (AND , OR NOT)
+	combinando querys :voce mistura querys de tabelas diferentes (UNION)
+	O que é uma consulta 
+		basicamente se resume no comando select
+		Basicamente e o comando mais importanten saber bem
+	Comando em aulas 
+	SELECT CITY, TARGET, SALES FROM OFFICES;(SELECT colunas_separadosporvirgulas from tabela)
+	SELECT CITY,TARGET SALES FROM OFFICES WHERE REGION='Eastern'
+	SELECT CITY, TARGET, SALER FROM OFFICES WHERE REGION ='Eastern' AND SALES>TARGET ORDER BY CITY;
+	SELECT AVG(TARGETS),AVG(SALES) FROM OFFICES WHERE REGION = 'EASTERN'
+	SELECT ROUND(AVG(TARGETS),1),ROUND(AVG(SALES),1) FROM OFFICES WHERE REGION = 'EASTERN'(arredondamento cirntifico(round)+ limitacao de casas decimais (avg(coluna,1)) )
+	GROUP BY (sumarizacao , ex: quantos pedidos  foram ordenados em cada mes---->cap6)
+	SELECT NAME, REP_OFFICE, HIRE_DATE FROM SALESREP
+	SELECT NAME,QUOTA,SALES FROM SALESREP WHERE NUM_WORKERS=107
+	SELECT AVG(SALES)FROM SALESREPS
+	SELECT NAMES,HIRE_DATES FROM SALESREP WHERE SALES>500
+	SELECT NAME,QUOTA,MANAGER FROM SALESREPS
+	SELECT CITY,REGION,(SALES-TARGET) FROM OFFICES;(atributo derivado) FROM SALESREPS
+	SELECT MFR_ID,PRODUCT_ID ,(QTY_ON_MAND*PRICE) AS INVENTARIO(renomeacao de campo ou tabela)
+	SELECT NAME, QUOTA ,(QUOTA +SALES*0,03)
+	SELECT NAME,MONTH(HIRE_DATE) YEAR(HIRE_DATE) FROM TABELA(FUNCOES BUILT IN )
+	SELECT CITY , 'TEM VALOR DE VENDAS ',SALES FROM OFFICES (constatnes que se repetirao em todas as linhas)
+	SELECT DISTINCT MGR FROM OFFICES(elimina as duplicatas)
+	SELECT * FROM ORDERS WHERE ORDER_DATE BETWEEN 'DATA'AND 'DATA'(pega um certo intervalo.pode usaro not antes do between )
+	SELECT *FROM SALESREP WHERE REP_OFFICE IN (11,13,22) ======= 	SELECT *FROM SALESREP WHERE REP_OFFICE = 11 OR REP_OFFICE = 13 OR REP_OFFICE = 22 
+	SELECT COMPANY , CREDIT_LIMIT FROM CUSTOMERS WHERE COMPANY LIKE 'SMITHS% CORP'. (REGEX. % qualquer caracterer e qualquer quantidade)
+	SELECT COMPANY , CREDIT_LIMIT FROM CUSTOMERS WHERE COMPANY LIKE 'SMITHS% CORP'	('_' qualuqer caracter repetido apenas uma vez)
+	SELECT CITY, REGION SALES FROM OFFICES ORDER BY REGION,CITY; (ordena por regiao e depois ordena por cidade)
+	SELECT CITY, REGION SALES FROM OFFICES ORDER BY REGION,CITY desc; (ordena por regiao e depois ordena por cidade. no caso e ordem descendente)
+	SELECT CITY,REGION,SALES-TARGET FROM OFFICES ORDER BY 3 DESC (especifica a coluno declarada , esta sera usada para ordenacao )
+	SELECT CITY,REGION,SALES-TARGET AS PERFORMANCE FROM OFFICES ORDER BY PERFORMANCE DESC (coluna renomeada)
+	SELECT CITY,REGION,SALES-TARGET FROM OFFICES ORDER BY REGION ASC ,3 DESC (MISTURA DAS REGRAS)
+	QUERY_TABELA_1 UNION QUERY_TABELA_2 (RESTRICOES:-as duas tabelas devem ter o mesmo formato, a mesma estrutura. o tipo de dado da primeira tabela deve ser correspondente ao da segunda
+													- order by nao pode ser usada na primeira tabela. mas pode ser usada na segunda )
+	Query1 UNION ALL query 2 ( mantem as linhas duplicadas da tabela.PODE SER FEITOS DIVERSOS UNIONS )
+	SELECT NAME,REP_OFFICE,HIRE_DATE FROM SALESREPS LIMIT 3(limita a qunatidade de linhas de retorno)
+	select SUBSTRING (STR,POS)--->ESTUDAR OS DERIVADSO
+	pode se apelidar a tabela  : FROM TABELA APELIDO
+	INSTR(STRING,substring) (detecta um subtexto dentro de um texto)
+	
