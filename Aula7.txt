@@ -1,0 +1,88 @@
+Unidade 7 Modelo entidade relacionamento (tem em muitos livros de engenharia de software) (Cap 7 navathe)
+
+Fases do projeto do banco de dados 
+	projeto conceitual 
+		A partir dos requisitos levantados na parte inicial, com base no casos de uso e outras tecnicas é pensado no banco de dados
+		Tem que fazer um projeto do banco de dados 
+		e feito a modelagem conceitual 
+			é o primeiro desenho, levantamento do banco de dados. É a parte conceitual do projeto, independente se é hierarquico , redes ou relacional
+			é definido as entidades, os objetos que ira ser armazenados no banco de dados
+			é definido os relacionamentos entre as entidades,as lligacoes entre as tabelas 
+			é definido algumas regras(1 para n, n para 1)
+			NAO APRESENTA DETALHES DE IMPLEMENTAÇÃO, como o tipo de banco de dados (relacuional, hierarquico), tipos de dados , etc. é uma camada mais abstrata!
+			A preocupação é olhar o banco de dados de uma maneira conceitual
+			Existe faz muito tempo, nasceu na decada de 70
+			por nao estar amarrado a uma implementacao de banco de dados, é mais facil de entende-lo por ser mais abstrato 
+			a medida que o projeto for sendo trabalhado, este modelo irá ser refinado 
+	projeto lógico 
+		mapear o modelo conceitual para uma determinado modelo de banco de dados
+		ja se escolhe o tipo de banco de dados(hierarquico , relacional, etc)
+		ja se escolhe o software (mysql,db2)
+		camada menos abstrata
+	projeto fisico 
+		detalhamento do logico. menos abstrato
+		detalhes fisico de imoplementação , paramentros fisicos alterados pensados para o melhoramento de desempenho 
+Diagrama entidade relacionamento 
+	primeiro modelo de banco de dados
+	
+	atributo 
+		é uma elipse
+		propriedades,caracteristica da entidade ou do relacionamento 
+		atributos composto 
+			atributo com subdivisoes ,atributos mais simples que sao atomico. ex endereço: possui rua, cidade,etc
+			e implementado dependendo da conculta que sera utilizados
+		atributos multivalorados 
+			NAO E ATRIBUTO COMPOSTO 
+			atributo que pode assumir varias ocorrencias,varios valores.ex: telefone: cada um pode ter mais de um
+			elipse dupla
+		observacoes
+			atributo derivaveis (calculados a partir de outros atributos) sao representados por tracejados
+			atributo chave : representada com o nome sublinhado
+		dominio ====
+	entidade
+		representado por um retangulo
+		é uma tabela 
+		possui atributos , propriedades que o descrevem 
+		é tudo aquilo que quero armazenar no sistema
+		pode ser algo fisico 
+		pode ser abstrato(conta corrente)
+		entidade fraca :uma entidade que nao existe sem outra
+		ums entidade pode nao ter chave
+			se nao tem chave e uma entidade fraca, retangulo duplo. depende da existencia de outro 
+	relacionamento
+		losango
+		geralemnte possui um verbo que o caracteriza
+		uma ligação entre as entidades , relacionamento entre entidades
+		pode ser recursivo, relaciona uma entidade com ela mesma 
+		pode ter atributos
+		diagrama de instancia
+			liga uma instancia de uma entidade a outra 
+			na pratica nao se usa muito 
+		um atributo de entidade pode ser colocado na entidade , dependendo da cardinalidade
+		diagrama de ocorrencia
+			uma linha da tabela se relacionando com outra linha da tabela. mesma coisa que o de instancia
+		tipos de relacionamentos 
+			geralmente binario , ou grau 2
+				trabalha com duas entidades 
+			pouco usado:ternario 
+				tres entidades : lembrar medico consulta um pacietne em um ambulatorio
+		relacionamento recursivo
+			relacionario unario , pega apenas uma entidade
+		papeis
+			sujeitos da ação a ser trabalhada. 1 para n, n para um n para n
+		como quantificar os relacionamentos 
+			depende das regras de negocio. isso vai definir a cardinalidade 
+		razao cardinaldiade 
+			taxa que define uma determinada ocorrencia de uma entidade em outra.
+			numero maximo de intancias que uma entidade pode participar
+			um para um um para muitos e muitos para muitos 
+			coloca um numero correspondente do lado de cada entidade 
+			uma para n: cahve estrangeira, fica do lado do n
+				um departamento tem varios funcionaros, mas o funcionario so e de um departamento 
+				integraidade referencial
+			um para um 
+				unm funicionario administra um projeto, e um projeto e administrado por varios projetos 
+				chave estrangeira tanto faz onde fica 
+			m para n 
+				um funcionarios trabalham em varios projetos, e um projeto tem varios funcioanrios
+				uma terceira tabela que tem chave estrangeira combinada!! funcionario/projeto
