@@ -86,3 +86,5 @@ Diagrama entidade relacionamento
 			m para n 
 				um funcionarios trabalham em varios projetos, e um projeto tem varios funcioanrios
 				uma terceira tabela que tem chave estrangeira combinada!! funcionario/projeto
+				
+				SLIDE 39!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
