@@ -112,6 +112,43 @@ Diagrama entidade relacionamento
 		O atributo do relacionamento 1 para n pode ser migrado para a entidade do lado n
 		O atributo do relacionamento 1 para 1 pode ser migrado para quaisquer entidade
 		os atributos do relacionamento de m para n sera migrado para uma nova tabela com as chaves estrangeiras das duas entidades
+
+		relacionamento recursivos 
+			relacionamentos em uma propria tabela
 Variaçoes do modelo entidade relacionamento 
 	definise os valores de cardinalidade minima e maxima , subsittuindo a razao de cardinalidade
 	uma seta sai do relacionamento e aponta para o par ordenao, onde define-se a cardinalidade minima e maxima 
+	Abole as restriçao de participaçao total 
+	pode ser utilizado nos atributos multivalorados
+		pode ser opcional , cardinalidade minima é 0
+Projeto logico 
+	mapeamento do projeto conceitual para o o tipo de banco de dados que sera implementado 
+	existe um algoritmo que mapeia do entidade relcionamento para o relacional 
+	possui sete passos, mas nem sempre todos serao utilizados 
+	passos:
+		1- entidades fortes
+			Todas as entidades fortes terao uma relaçao criada no modelo relacional 
+			Todos os atributos simples serao atributos da tabela do modelo relacional 
+			Selecionar uma das chaves candidatas e definir como chave primaria . apenas sublinhar a chave primaria
+		2- entidades fracas
+			cada entidade fraca ira corresponder a uma nova relaçao no modelo relacional 
+			atributos tambeem serao incluidos 
+			incluir CHAVE ESTRANGEIRA que é a chave primaria da tabela proprietaria 
+			sera criado uma chave composta, com a chave estrangeira e a chave de indentificação
+		3- Mapear os tipos relacionamentos binarios 	1 para 1: 
+				uma das relaçoes ira conter a chave estrangeira da outra. tanto faz qual 
+		4- Mapear relacionamentos 1:N
+			 colocar a chave estrangeira na tabela do lado n
+			 se for recursvivo , a chave estrangeira sera um mesmo atributo , mas pertecente a outra tupla
+		5- Mapear relacionamentos M:N
+			Criar uma terceira tabela para o relacionamento 
+			havera duas chaves estrangeiras 
+			a chave desta tabela sera uma chave composta com as duas chaves estrangeiras 
+		6- Atributos multivalorados 
+			O atributo multivalorado ira se tornar uma tabela , com chave estrangeira e o valor do atributo 
+			a chave sera uma chave composta 
+		7- Relacionamento ternario , ou quartenario
+			Cria-se uma tabela para o relacionamento desta tabela 
+			criam se chaves estrangeiras na tabela da relaçao com as entidades
+			a chave desta tabela sera uma chave composta destas chaves estrangeiras 
+			
