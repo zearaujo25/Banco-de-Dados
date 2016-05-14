@@ -1,0 +1,27 @@
+Unidade 8- Projeto de banco de dados: boas práticas e normalização   navathe 15 
+ 
+  Projeto conceitual: primeiro levantamento do banco de dados , esta mais preocupado em resolver o problema do suario. Esta mais proximo do usuario. Modelo entidade relacionamento. nao se leva em contao gbd o dbm
+  Projeto Lógico: Ja se pensa o geenciador de banco de dados a ser aplicado, DB2 , MySQL, de redes, etc. Lembrar do algoritmo de mapeamento 
+    utilizar o bom senso (essa aula é sobr isso)
+ 
+  Como avaliar se o agrupamento de atributos em um esquema é melhor do que outro?
+    Utilizar as boas praticas  para medir a qualidade do software 
+    Deve-se empregar de um modo formal de analise (Normalização)!!!
+      Analise de Redundância (quanto mais redundancia pior)
+        Traz problemas de storage e controle (consistencia dos dados)
+        mas a redundancia as vezes é bom por questão de desempenho
+        Dependencia funcional 
+  
+  Boa praticas- Diretriz 1
+    Semântica clara dos atributos
+    toda vez que se cosntruir um modelo logico , e na construção de cada relação , tem que ter facil significado para o usuario 
+    as coisas simples em geral funcionam melhor. simples nao e mal feito
+    Projete uma relacao que seja facio deser entendida, uma relaçao que nao mistrue dados entre objetos 
+    uma relacao que nao traga ambguidade 
+      aparece dados misturados entre tabelas
+      dados crepetidos criam anomalias
+    NAO COMBINARÁS ATRIBUTOS DE  TABELAS  DISTINTAS
+  
+  
+
+  
