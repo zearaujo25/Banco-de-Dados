@@ -22,6 +22,34 @@ Unidade 8- Projeto de banco de dados: boas práticas e normalização   navathe 
       dados crepetidos criam anomalias
     NAO COMBINARÁS ATRIBUTOS DE  TABELAS  DISTINTAS
   
-  
+ Impacto da violação da primeira diretriz 
+  QUEIMARÁS NO INFERNO DO SUPORTE-- ZUERA
+  Redundancia de informaçao ----- deve-se evitar a redundancia descontrolada
+  Anomalia de inserção (insert)
+   na hora de inserir os dados de uma nova tupla , pode gerar uma inconsistencia de dados
+  Anomalia de exclusão
+   problemas gerados por se tirar dados da tabela 
+   pode delatar um departamento por exeplo 
+  Anomalia de modficação
+   ao se modificr uma linha , diversas outras ha a possiblidade de se dever alterar diversas outrar 
+   
+ Boas praticas- diretriz 2 
+  Consequencia das anomalias 
+  projete as relações de forma que não haja anomalias
+  Se houver anomalias de tratar na aplicação 
+  NÃO GERARÁS ANOMALIAS DE ATUALIZAÇÃO 
+ 
+ Boas praticas - diretriz 3
+  EVITARÁS OS VALORES NULOS
+  pode dar problema de count e de processamaento 
+ 
+ Tuplas falsas 
+  Se tivermos tabelas mau projetadas,pode dar bosta na hora do join 
+  exemplo :
+   pensa em uma tabela mauformulada. a partir dela voce deriva outras duas tabelas. ao dar join natural nas duas tabelas filhas para tentar gerar a tabela original gerará tuplas a mais, ou tuplas falsas, que nao representam a realidade. ver pagina 345
 
+ Boas praticas - diretriz 4 
+  EVITARÁS AS REDUNDANCIAS PARA NAO GERAR TUPLAS FALSAS
+  
+ Dependencia funcional 
   
