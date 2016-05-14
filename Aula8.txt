@@ -52,4 +52,16 @@ Unidade 8- Projeto de banco de dados: boas práticas e normalização   navathe 
   EVITARÁS AS REDUNDANCIAS PARA NAO GERAR TUPLAS FALSAS
   
  Dependencia funcional 
-  
+  Relacionamento entre atributos , ou seja, um atributo da tabela depdende de outro atributo da tabela. Há uma dependecia semantica entre atributos
+ Um atributo determina outro 
+  Um cpf determina um nome. o nome depende do CPF
+  se duas tuplas com o primeiro atributo, o determinante por dizer, forem iguais , essas mesmas tuplas serao iguais para o atributo dependente
+Tomar cuidado com o lado dominante , para evitar que haja redundancia 
+Um atributo pode determinar mais de um atributo
+A dependencia funcional da dicas de redundancia 
+Um conjunto de atributos pode determinar um unico atributo 
+As dependencias funcionais dependem das REGRAS DE NEGOCIO, e nao dependem do estado do banco de dados
+A partir do estado do banco de dados consegue se perceber quais estados NAO SAO dependetes funcionais.
+Mas a partir do estado do banco de dados nao da para se determinar qume e dependente funcional de quem.
+Se ha dependencia funcional entre atributos que nao sao chaves, isso gerará redundancia 
+ exx: Cidade estado
