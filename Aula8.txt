@@ -56,12 +56,69 @@ Unidade 8- Projeto de banco de dados: boas práticas e normalização   navathe 
  Um atributo determina outro 
   Um cpf determina um nome. o nome depende do CPF
   se duas tuplas com o primeiro atributo, o determinante por dizer, forem iguais , essas mesmas tuplas serao iguais para o atributo dependente
-Tomar cuidado com o lado dominante , para evitar que haja redundancia 
-Um atributo pode determinar mais de um atributo
-A dependencia funcional da dicas de redundancia 
-Um conjunto de atributos pode determinar um unico atributo 
-As dependencias funcionais dependem das REGRAS DE NEGOCIO, e nao dependem do estado do banco de dados
-A partir do estado do banco de dados consegue se perceber quais estados NAO SAO dependetes funcionais.
-Mas a partir do estado do banco de dados nao da para se determinar qume e dependente funcional de quem.
-Se ha dependencia funcional entre atributos que nao sao chaves, isso gerará redundancia 
- exx: Cidade estado
+ Tomar cuidado com o lado dominante , para evitar que haja redundancia 
+ Um atributo pode determinar mais de um atributo
+ A dependencia funcional da dicas de redundancia 
+ Um conjunto de atributos pode determinar um unico atributo 
+ As dependencias funcionais dependem das REGRAS DE NEGOCIO, e nao dependem do estado do banco de dados
+ A partir do estado do banco de dados consegue se perceber quais estados NAO SAO dependetes funcionais.
+ Mas a partir do estado do banco de dados nao da para se determinar qume e dependente funcional de quem.
+ Se ha dependencia funcional entre atributos que nao sao chaves, isso gerará redundancia 
+  exx: Cidade estado
+Normalização de Relação 
+ Para sua ação , se cria mais tabelas 
+ Finalidade: Minimizar redundâncias
+  redundancias podem gerar anomalias ao se manipular os dados
+ Uma teoria que ajuda a minimizar redundancias, uma ferramenta teorica
+  Normalizar 
+   Mexer nas tabelas de tal modo que haja o minimo de reduncia 
+   MAAAS, algumas vezes algumas redundancias sao deixadas por questão de performance 
+ Surgiu junto com o modelo relacional
+ Formas normais 
+  foram propostas em tres inicialmente , a primeira a segunda e a terceira (masi comum )
+  Porem pode se normalizar na quarta e na quinta se desejar 
+  Todas as formas normais sao feitas com base em dependencia funcional 
+ Ferramenta analitica que minimizam as anomalias 
+ Definicao :
+  Toda relacao que esta na terceira forma normal, ela tambem esta na segunda, e tambem esta na primeira 
+ Lembrar de 
+  SuperChave 
+   Atributo ou conjunto de atributo que indentificam uma tupla
+  Chave 
+   É toda superchave minima.
+  Chave candidata 
+   Todaa as chaves 
+  Chave primaria 
+   Chave escolhida para indentificar a tupla 
+  Chaves unicas 
+   Chaves que nao sao as primarias 
+ Atributo principal
+  Atributo membro de uma chave candidata qualquer
+ Atributo  nao principal 
+  Nao faz parte de nenhuma chave 
+ Primeira norma normal 
+  relacionada a concepcçaõ do banco de dados 
+  Visto na cap 2 
+  o atributo deve ser atomico , nao multivalorado
+  Como trazer para primeira forma normal ? 
+   O atributo causando problema  será tornado em uma segunda tabela , tornado-se parte da chave , ou um atributo principal 
+   uma outra opção seria manter uma unica tabela , mas o atributo multivalorado se tornara atomico e se tornara atributo principal de uma chave composta junto com a chave original 
+   Dividir o atributo problemtico em outros atributos 
+    nao muito interessante por gerar campos nulos 
+ Segunda forma normal 
+  Dependencia funcional total 
+   ao se retirar algum atributo do lado esquerdo a depedencia nao mais se mantem . ou seja , se retirar uma tributo do lado esquerdo , deixa de haver adependencia funcional 
+  Dependencia funcional parcial 
+   Ao se retuirar um atributo do lado esquerdo , a dependecia funcional continua 
+  Um esquema na relação R esta na segundo forma normal se um atributo nao principal for totalmente dependente dos atributos dominantes , que são as chaves primarias(lembrar que pode ser composto)
+  Como passar para a segunda forma normal ?
+   Os atributos problematicos deverão passar para novas tabelas 
+ Terceira forma normal 
+  Dependencia funcional transitiva 
+   Se A-> B e B->C entao A->C
+   C e transitivamente dependente de A 
+  Uma atbela nao estiver na terceira forma normal quando nenhum atributo for transitivamente dependente da chave 
+  Como normalizar ? 
+   Criar novas tabelas onde o atributo dependente junto com se dominante se movem para ela
+   
+  
