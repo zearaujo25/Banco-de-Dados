@@ -1,4 +1,4 @@
-Unidade 9 
+Unidade 9 cap 17 navateh 
 Introdução 
   Enfoque mais no projeto fisico 
   Se pensa na no armazenado de memoria tanto na primaria quanto na secundaria , por causa de tempo de execução e persistencia de dados ,respectivametne 
@@ -27,4 +27,36 @@ Organização dos dados
       traz o ultimo bloco, grava no final e devolve 
     Desvantagem 
       A busca de um registro dentro deste arquivo é o caos. a complexidade aumenta conforme o tamanho do arquivo por nao haver ordenação 
-      Na hora de deletar um registro, o bloco onde esta o registro e levado para memoria, reescrito sem o registro desejadoe  jogado de volta para o disco. isso deixa os blocos cheios de furos, sendo necessario a reorganização dos arquivos de vez em quando  
+      Na hora de deletar um registro, o bloco onde esta o registro e levado para memoria, reescrito sem o registro desejadoe  jogado de volta para o disco. isso deixa os blocos cheios de furos, sendo necessario a reorganização dos arquivos de vez em quando 
+        existe um metodo mais facil que e edeleçao logica. imagine que voce em cada registro , define-se um bit de controle que represenata se um registro esta ativo ou deletado. entao na hora de deletar um registro, ao inves de mexer na estrutura do bloco inteiro , so muda esse campo de controle, deletando de maneira logica . é mais efiociente por nao haver removimentação nos blocos . mas ainda nao elimina a necessidade de um reorganização a longo prazxo. alem disso , a reorganização se torna mais complicada por ter que analizar cada registro 
+      Se for necessario que os arquivos sejam acessados a uma dada ordem, e necessario fazer uma reordeção desses arquivos 
+  Arquivos ordenados ou sequencias 
+    Existe uma preocupação na hora de gravar os blocos , ha uma certa preocupação de se manter uma determinada ordem
+    Há uma dada sequencia em um dado campo 
+    a gravação segue essa ordem 
+    Vantagem 
+      Se desejar efetuar uma leitura sequencial , a eficiencia e muito boa por que os dados ja estao ordenados. a leitura  emuito eficiente 
+      A leitura randomica (pesquisa com chave que seja outro campo alem do de ordenação)  é eficiente por meio de pesquisa binaria, metodo de newton (complexidade logaritmica )
+    O insert é um pouco mais tenso , por que deve haver uma pesquisa dentro dos blocos para colocar o regitro no lugar certo. Altas chances de regravação de blocos 
+    Exclusão tambem nao sera tao eficiente por que gerara buracos e havera regravacao dos blocos de maneira periodica para ajustar os blocos
+  Arquivos Hash 
+    O acesso e praticamente imediato 
+    tambem chamados de arquivos diretos 
+    hash interno e quando esta sendo usado na memoria principal 
+      pode se miontar uma tabela hash na emmoria principal para melhorar o desempenho 
+    organizacao de arquivos e chamado de hash externo 
+    complexidade constaten 
+    Desvantagem 
+      Gasta mais memoria onde quer sque seja empregada, na memoria principal ou em disco.
+    Hash interno 
+      Conceito de array assossiativo 
+        Cada posição do array é correspondente ao valor da chave, que evita processamento. 
+        o preço que se paga é a quantidade de memoria 
+        se a chave nao for numerica, tera de ser feito uma funcao de mapeamento 
+        mas para casos gigantes nao vale a pena gerar um array tao grande. Como proceder?
+          Hash tables 
+            Hash funtion 
+              um funcção que determina através da chave e posição na memoria. 
+              A chave e mapeada para uma determinada posica. mesmo conceito que o hash de memoria 
+              Pode gerar problema de colisaopois duas chaves podem acabar sendo mapeadas para mesma posicao 
+              SLDE 55 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
