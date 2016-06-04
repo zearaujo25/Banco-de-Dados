@@ -1,0 +1,30 @@
+Unidade 9 
+Introdução 
+  Enfoque mais no projeto fisico 
+  Se pensa na no armazenado de memoria tanto na primaria quanto na secundaria , por causa de tempo de execução e persistencia de dados ,respectivametne 
+Organização dos dados 
+    Os dados armazenados em discos são chamados de REGISTROS. São arquivos para cada linha  da tabela , para cada tupla 
+    Para poupar tempo de execução, os registros sao armazenados em blocos para facilitar a busca de uma query 
+    Os registros são tranferidos em blocos da memoria primaria para a secundaria 
+    O fator de bloco é a quantidade de registros dentro de um bloco , normalmente proximo da trilha (para valores fisicos)
+      o fator de bloco é associado a cada arquivo de tabela 
+    Se os registros forem de tamanho variavel , usa-se uma media 
+    Os arquivos sao carregados em um beffer na memoria 
+    Os registros possuem metadados para mostrar o tamanho a ser utilizado do arquivo.
+    Tipos de organização de arquivos 
+      Heap 
+        Os arquivos são gravados sem se preucupar com a ordenação . A cada registro de arquivo, é colocado no fim do arquivo 
+      Sequencial 
+        Os dados possuem uma determinada ordem, seguem uma sequencia com base no valor de um campo particular
+      Hash 
+        Tecninca usada onde a localzação do dado esa associada a uma chave , há um par ordenado chave valor 
+        utiliza a função de randomização 
+  Heap 
+    Arquivo sem nnenhum criterio de ordem 
+    Insert usa essa tecninca 
+      Traz um bloco para a emmoria e grava no final, sem se preocupar com a ordem 
+      muito eficiente por nao se preocupar com relação a ordem 
+      traz o ultimo bloco, grava no final e devolve 
+    Desvantagem 
+      A busca de um registro dentro deste arquivo é o caos. a complexidade aumenta conforme o tamanho do arquivo por nao haver ordenação 
+      Na hora de deletar um registro, o bloco onde esta o registro e levado para memoria, reescrito sem o registro desejadoe  jogado de volta para o disco. isso deixa os blocos cheios de furos, sendo necessario a reorganização dos arquivos de vez em quando  
