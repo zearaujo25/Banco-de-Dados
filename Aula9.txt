@@ -74,6 +74,10 @@ Organização dos dados
                 Complexidade na hora de inserção: O(1)
                   isso aontece por que os novos termos são colocados no começo da lista, mantendo a complexidade baixa
                 Agora a busca na tabela não é tão eficiente para realizar a busca, pois será necessário realizar uma varredura da lista ligada. a busca se torna complexidade O(n)
-              enderaçamento aberto (rehashing )
-            
+              enderaçamento aberto (rehashing ) ou encadeamento aaberto 
+                Tambem conhecido como hashing interno 
+                Usa a propria tabela hash para tratar elementos de colisão 
+                As colisões são jogadas para os espaços vazios não utilizados na tabela 
+                bagunça tudo
+                complica na hora da busca
     Hash externo 
