@@ -48,15 +48,32 @@ Organização dos dados
     complexidade constaten 
     Desvantagem 
       Gasta mais memoria onde quer sque seja empregada, na memoria principal ou em disco.
-    Hash interno 
+    Hash interno (tabela de dispersão)
+      Trabnalha na area de memoria 
       Conceito de array assossiativo 
         Cada posição do array é correspondente ao valor da chave, que evita processamento. 
         o preço que se paga é a quantidade de memoria 
         se a chave nao for numerica, tera de ser feito uma funcao de mapeamento 
         mas para casos gigantes nao vale a pena gerar um array tao grande. Como proceder?
-          Hash tables 
-            Hash funtion 
+          Hash tables ou mapeamento
+            Hash funtion ou função de randomização 
               um funcção que determina através da chave e posição na memoria. 
               A chave e mapeada para uma determinada posica. mesmo conceito que o hash de memoria 
-              Pode gerar problema de colisaopois duas chaves podem acabar sendo mapeadas para mesma posicao 
-              SLDE 55 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+              Pode gerar problema de colisao pois duas chaves podem acabar sendo mapeadas para mesma posicao 
+              ex: H(k)=K%N onde n é o tamnaho do array 
+            tratamento de colisão 
+              tecnica de encadeamento 
+                a ideia é que cada poosição do array, ou da area de memoria, possua um conjuto de chaves associados a ela 
+                ao inves de armazenar a chave em cada posicao da tabela sera armazenado um POINTER.
+                  pointer que aponta para o conjunto de chaves que participaram da colisão . esse conjubto irá crescendo conforme o processamento da tabela. o pointer armazenado é chamado de head, que aponta para o primeiro termo da lista que e cobeçalho . este termo possui o tamanho do lista e o pnteiro para o proximo termo.
+                  esse conjunto é uma lista ligada
+                  listas encadeadas ou listas ligadas
+                Em suma, há uma lista ligada associada a cada posição de memoria que possuiu colisão, sendo realizado uma busca dentro desta lista para busca de termo 
+                quanto menor o tamanho do array prealcado, que e definido pela funcao hash, maiores as chances de haver uma colisão 
+                ganha memória, perde processamento 
+                Complexidade na hora de inserção: O(1)
+                  isso aontece por que os novos termos são colocados no começo da lista, mantendo a complexidade baixa
+                Agora a busca na tabela não é tão eficiente para realizar a busca, pois será necessário realizar uma varredura da lista ligada. a busca se torna complexidade O(n)
+              enderaçamento aberto (rehashing )
+            
+    Hash externo 
