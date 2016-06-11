@@ -81,3 +81,10 @@ Organização dos dados
                 bagunça tudo
                 complica na hora da busca
     Hash externo 
+      São os mesmos conceitos do hash internos, mas do ponto de vista do disco 
+      O registro é gravado em uma região de memória , uma estrura chamada bloco
+      os blocos são armazenados em uma area do disco chamado bucket 
+      a colisão no ponto de vista do disco é mneos tenso, pois em cada bloco há varios registros. A chave nao sera mapada para um endereço especifico, mas sim um conjunto de endereços. 
+      Pode haver o problema do bloco estar cheio . 
+      A chave poderia ser uma tupla 
+      Se o bloco estiver cheio , ha um ponteiro apontando para outro bloco , uma lista ligada de blocos fa
