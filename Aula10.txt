@@ -36,3 +36,9 @@ Unidade 10 - Estrutura de indexação em banco de dados pt1
     Não necesariamente esta ordenada.
     Deverá haver mais pointers por conta disso, haverá um pointer para cada registro
     O indice esta ordenado pela chave candidata. então a ao se realizar a pesquisa e usado a pesquisa binaria em cima do indice. Lembara que o enderço apontado e o do bloco, bnao do registro 
+  Indice Secundario em campos nao chave 
+    fudeu por que agora osvalores podem estar duplicados 
+  Indices multinivel 
+    Indices que fazem referencia a outro indice , que faz referencia a outro indices...... ate chegar no dado 
+    
+    *****SLIDE23****
