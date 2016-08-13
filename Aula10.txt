@@ -20,3 +20,19 @@ Unidade 10 - Estrutura de indexação em banco de dados pt1
       é consituidos de registros tambem 
       etrutura chave valor, onde o valor é o ponteiro, o endereço do valor 
     Lembrar que gasta processamento para ler. Mas como e pequeno, issopode se tornar imperceptivel 
+    
+  **********************PEDIR PARA A BRUNA AS ANOTAÇÕES**********************
+  indice primario 
+    complexidade?
+    pesquisa binaria? 
+    estrutura ?
+    Um para cada bloco de meoria (o primeiro registro mapeado pela sua chave primaira )
+    
+  
+  Ao se inserir ou retirar dados, deve-se manter o indice atualizado 
+  Existem mecanismos para se tornar a pesquisa do indice melhor ainda 
+  Indice secundario 
+    é um indíce que utilzia chaves candidatas(valores unicos) ao inves de primarias 
+    Não necesariamente esta ordenada.
+    Deverá haver mais pointers por conta disso, haverá um pointer para cada registro
+    O indice esta ordenado pela chave candidata. então a ao se realizar a pesquisa e usado a pesquisa binaria em cima do indice. Lembara que o enderço apontado e o do bloco, bnao do registro 
