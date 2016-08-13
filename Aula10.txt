@@ -1,0 +1,22 @@
+Unidade 10 - Estrutura de indexação em banco de dados pt1
+  Indexação - Tem haver com ídices. Categorização em índices 
+  Open
+    Macro instrução 
+      conjunto de instruções do sistema operacional em que disponibiliza o arquivo para o programa
+
+  Ìndice
+    Arquivos auxiliares que servem para mapear e acelerar o acesso de conteúdo de uma maneira mais rapida e eficiente. Fornecem o CAMINHO DE ACESSO, ou ACCESS PATH através de campos cheves, ou outros tipos de informação . Não alteram o conteúdo dos dados!!!!
+    São baseadas em determinadas informações , que podem ser chaves ou outros campos . 
+    Em um arquivo de banco de dados , pode haver apenas um indice? 
+      NÃO!!! PODE HAVER MAIS INDICES!!!!
+    Campo de indexação 
+      Informação o qual o indice se baseia para acessar o dado
+    O que o indice retorna ? 
+      O endereço no disco do bloco (lembrar que um bloco é um conjunto de registro. isso acontece qpor causa de questões de desempenho. trabalhar com blocos é mais eficiente). 
+    
+    Em geral é um arquivo pequeno.
+    Pode haver indices de indices 
+    Qual a estrutura do indice? 
+      é consituidos de registros tambem 
+      etrutura chave valor, onde o valor é o ponteiro, o endereço do valor 
+    Lembrar que gasta processamento para ler. Mas como e pequeno, issopode se tornar imperceptivel 
