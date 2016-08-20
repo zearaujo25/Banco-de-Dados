@@ -38,7 +38,21 @@ Unidade 10 - Estrutura de indexação em banco de dados pt1
     O indice esta ordenado pela chave candidata. então a ao se realizar a pesquisa e usado a pesquisa binaria em cima do indice. Lembara que o enderço apontado e o do bloco, bnao do registro 
   Indice Secundario em campos nao chave 
     fudeu por que agora osvalores podem estar duplicados 
+    torna os indices nao esparsos ou densos 
   Indices multinivel 
     Indices que fazem referencia a outro indice , que faz referencia a outro indices...... ate chegar no dado 
+    Quebra um indice muito grande em varios menores, para tornar a busca um pouco mais rapido 
+    Desvantagem: complexidade do sistema 
+    Na pratica nao se usa diversos indices , e sim usa-se o conceito de arvore BTREE
     
-    *****SLIDE23****
+  Arvore
+    Conjunbto de nós que são organizados hierarquicamente, onde um desses nós é o pai de todos (raíz). Cada nó só pode ter 1 pai.
+    Folhas: Nós sem filhos 
+    nós intermediario: nos sem filhos 
+    Arestas: Ligação entre nos
+    Caminho : Caminho percorrido para chegar de um no a outro. Quantidade de arestas
+    Profundidade: Tamanho do caminho da raiz ate uma folha
+    Altura : Tamanho do caminho de um no ate seu descendente mais profundo 
+      Se uma arvore é balanceda, nos possuem mais ou menos a mesma altura 
+    BTREE
+      estrutura de indice onde se tem os blocos oganizados em uma estrutura hierearquica , usa-se uma arvore balanceada e preve blocos livres , e dentro dos blocos preve registros livres. usa-se esses espaços para facilitar na hora de inserir novos dados
