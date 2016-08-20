@@ -54,5 +54,31 @@ Unidade 10 - Estrutura de indexação em banco de dados pt1
     Profundidade: Tamanho do caminho da raiz ate uma folha
     Altura : Tamanho do caminho de um no ate seu descendente mais profundo 
       Se uma arvore é balanceda, nos possuem mais ou menos a mesma altura 
+    Travessia de arvore 
+      caminhar por todos os nos da arvore. Percorrer  por todos os nos da arvore
+      Pre ordem 
+        Começa pelos ancestrais 
+      Pos ordem
+        coemça pelos descendentes 
     BTREE
       estrutura de indice onde se tem os blocos oganizados em uma estrutura hierearquica , usa-se uma arvore balanceada e preve blocos livres , e dentro dos blocos preve registros livres. usa-se esses espaços para facilitar na hora de inserir novos dados
+**********PARTE 2**********
+Arvore binária 
+  Arvore que só permite ter dois filhos no maximo 
+  Arvore propria 
+    No que tem 0 ou 2 filhos 
+  Arvore impropria 
+    Tem no com apenas um filho
+  Numero maximo de nos 
+    N<=2^(h+1) - 1 , onde h é a altura
+  Travessia inorder 
+    visita o filho a esquerda, depois pai depis direita
+Por que arvore binaria é usada em bacno de dados? 
+  Se a arvore estiver bem estruturada, a informção será buscada de maneira  muito rapida 
+  Usada como arvore de pesquisa(chamada tambe de  ordenada ou search tree )
+  A arvore e construido com uma certa regra 
+    A chave não é colocada em qualque lugar, e smi em uma posição conveniente na arvore 
+    Todos os valores a esquerda da arvore sao menores que os nos a direita. O que esta a esquerda de um determinado no deve ser menor que o proprio no. da mesma maneira tudo que esta a direita do no , deve ser maior que o proprio no 
+    ISSO PERMITE UMA PESQUISA BINARIA . SE DESCARTA TODO PEDAÇO DE ARVORE.
+  
+  *****SLIDE 45*********
