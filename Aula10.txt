@@ -94,14 +94,19 @@ Arvore AVL
   Arvore de busca binaria que se preocupa com o balanciamento 
   Na hora de editar a arore, o que o algoritmo busca de fazer de um jeito que a deixa mais balanceada possivel , deixando uma diferença entre a ALTURA de nos de mesmo nivel de apenas uma unidade
   Para gfrandes volumes de dados , a arvore binaria pode se tornar muita profunda, o que pode prejudicar a busca. O que é feito apra trabalhar com isso é usar a arvore enaria 
-  Arvore enaria 
-    Uma árvore n-ária de pesquisa de ordem p é uma árvore tal que cada nó contém no máximo
+  PARA ARVORES BINARIAS !!!!!!!!!!!!
+Arvore enaria 
+  Uma árvore n-ária de pesquisa de ordem p é uma árvore tal que cada nó contém no máximo
 p-1 valores de pesquisa e p ponteiros na ordem:P1, K1, P2, K2, . . . , Pq-1, K q-1, Pq, onde q <= p.
-    Traduzindo, muda-se a estrutura do nó .  Cada nó tem mais ponteiros, mais filhos. Cada no tem varios ponteiros chave. Ponteiro1 chave1 , ponteiro2 cahve2.. ate o fim. Se trabalha com conjunto no racicinii
-    Exemplo : Arvore ternaria . 3 ponteiros e 2 chaves.    Ponteiro1-----Valor1------Ponteiro2----Valor2---Ponteiro3 
-      onde valor1<valor2
-      Ponteiro 1: aponta para Valorees menores que o valor 1
-      Ponteiro 2:aponta para Valorees entre o valor 1 e o valor 2 
-      Ponteiro 3 :aponta para Valorees maiores que o valor 2
+   Traduzindo, muda-se a estrutura do nó .  Cada nó tem mais ponteiros, mais filhos. Cada no tem varios ponteiros chave. Ponteiro1 chave1 , ponteiro2 cahve2.. ate o fim. Se trabalha com conjunto no racicinii
+  Exemplo : Arvore ternaria . 3 ponteiros e 2 chaves.    Ponteiro1-----Valor1------Ponteiro2----Valor2---Ponteiro3 
+    onde valor1<valor2
+    Ponteiro 1: aponta para Valorees menores que o valor 1
+     Ponteiro 2:aponta para Valorees entre o valor 1 e o valor 2 
+     Ponteiro 3 :aponta para Valorees maiores que o valor 2
+     Lembrar que há o ponteiro para os dados!!!!!!!!!!!!!!
     Tudo isso e para diminuir a profundidade da arvore . Arvores de menor profundidade tem uma performance melhor 
     Usada apenas em bancos de dados 
+    Deve se preocupar tambem com o balanceamento da arvore (PROBLEMA)
+    Para lidar com com esse problema , usa-se a arvore BTREE 
+      É uma arvore enaria de pesquisa com preocupação de balanceamneto dela. Extensão da AVL 
