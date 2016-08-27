@@ -56,10 +56,15 @@ Unidade 10 - Estrutura de indexação em banco de dados pt1
       Se uma arvore é balanceda, nos possuem mais ou menos a mesma altura 
     Travessia de arvore 
       caminhar por todos os nos da arvore. Percorrer  por todos os nos da arvore
+      
       Pre ordem 
         Começa pelos ancestrais 
+        Pai , depois filhos 
       Pos ordem
         coemça pelos descendentes 
+        Passa por todos os filhos antes dos pais 
+      In order 
+        Filho a esquerda, pai , filhoa  direita 
     BTREE
       estrutura de indice onde se tem os blocos oganizados em uma estrutura hierearquica , usa-se uma arvore balanceada e preve blocos livres , e dentro dos blocos preve registros livres. usa-se esses espaços para facilitar na hora de inserir novos dados
 **********PARTE 2**********
@@ -80,5 +85,23 @@ Por que arvore binaria é usada em bacno de dados?
     A chave não é colocada em qualque lugar, e smi em uma posição conveniente na arvore 
     Todos os valores a esquerda da arvore sao menores que os nos a direita. O que esta a esquerda de um determinado no deve ser menor que o proprio no. da mesma maneira tudo que esta a direita do no , deve ser maior que o proprio no 
     ISSO PERMITE UMA PESQUISA BINARIA . SE DESCARTA TODO PEDAÇO DE ARVORE.
-  
-  *****SLIDE 45*********
+  A arvore deve estar balanceada para compensar(PODE SER UM PROBLEMA) 
+    balanceada é quando os nós a direita e a esquerda tem a mesma altura,. se isso nao acontecer  ,a arvore se torna uma lista, e a pesquisa acaba se tornando sequencial 
+  Ao se retirar um no, deve-se ter cuidado ao remanjear a arvore 
+    se o no tem dois filhos 
+      o descendente mais esquerda do filho a direita toma o lugar 
+Arvore AVL 
+  Arvore de busca binaria que se preocupa com o balanciamento 
+  Na hora de editar a arore, o que o algoritmo busca de fazer de um jeito que a deixa mais balanceada possivel , deixando uma diferença entre a ALTURA de nos de mesmo nivel de apenas uma unidade
+  Para gfrandes volumes de dados , a arvore binaria pode se tornar muita profunda, o que pode prejudicar a busca. O que é feito apra trabalhar com isso é usar a arvore enaria 
+  Arvore enaria 
+    Uma árvore n-ária de pesquisa de ordem p é uma árvore tal que cada nó contém no máximo
+p-1 valores de pesquisa e p ponteiros na ordem:P1, K1, P2, K2, . . . , Pq-1, K q-1, Pq, onde q <= p.
+    Traduzindo, muda-se a estrutura do nó .  Cada nó tem mais ponteiros, mais filhos. Cada no tem varios ponteiros chave. Ponteiro1 chave1 , ponteiro2 cahve2.. ate o fim. Se trabalha com conjunto no racicinii
+    Exemplo : Arvore ternaria . 3 ponteiros e 2 chaves.    Ponteiro1-----Valor1------Ponteiro2----Valor2---Ponteiro3 
+      onde valor1<valor2
+      Ponteiro 1: aponta para Valorees menores que o valor 1
+      Ponteiro 2:aponta para Valorees entre o valor 1 e o valor 2 
+      Ponteiro 3 :aponta para Valorees maiores que o valor 2
+    Tudo isso e para diminuir a profundidade da arvore . Arvores de menor profundidade tem uma performance melhor 
+    Usada apenas em bancos de dados 
