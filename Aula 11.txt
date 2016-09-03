@@ -3,6 +3,8 @@ Unidade 11- Transações
     servidor que realiza um conjunto de transações de maneira muito rapida . mihares por segundo 
   Transação 
     um programa que pode fazer diversas operações ao banco de dados . (read write , commit rollback )
+    Do ponto de vista do usuario , são só algumas contas 
+    do ponto de vista do banco de dados , são o conjunto de operações , o conjunto de acessos 
   
   Gerenciador de transações 
     Programa responsavel por administrar as diversas transações que ocorrem naquele momento 
@@ -12,3 +14,5 @@ Unidade 11- Transações
   
   Uma operação de leitura pode gerar problema ? 
     Pode se outra transação estiver ocorrendo no mesmo moment, o que geraria inconsitencia de dados 
+  Quais os problemas advindos da concorrencisa de transações ?    
+    
