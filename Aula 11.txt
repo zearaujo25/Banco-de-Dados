@@ -1,0 +1,14 @@
+Unidade 11- Transações  
+  Main frmae 
+    servidor que realiza um conjunto de transações de maneira muito rapida . mihares por segundo 
+  Transação 
+    um programa que pode fazer diversas operações ao banco de dados . (read write , commit rollback )
+  
+  Gerenciador de transações 
+    Programa responsavel por administrar as diversas transações que ocorrem naquele momento 
+  
+  Por que é necessário haver um controle de concorrencia ?
+    Para evitar que haja inconscistencia nos dados , gere problemas 
+  
+  Uma operação de leitura pode gerar problema ? 
+    Pode se outra transação estiver ocorrendo no mesmo moment, o que geraria inconsitencia de dados 
