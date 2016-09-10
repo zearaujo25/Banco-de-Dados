@@ -1,0 +1,28 @@
+Unidade 12Controle de Concorrência e Controle de Banco de Dados
+Schedule- Ordem o qual as açcoes serao tomadas. 
+  
+  Schedule serial: Uma transação por vez. roda de maneira sequencial 
+    Problemas: performance
+   
+   Schedule serializavel 
+    shcedule concorrente que se comporta como serial 
+  
+  Lock- Bloqueios. Ação necessária para realizar transações sem gerar inconsistencia dos dados 
+    Para efeito de SGBD o mecanismo de controlee de concorrencia e feito por software. O lock é uma variavel do software. 
+    
+    Item de dados- informação do banco de dados, uma linha por exemplo, que será buscada no bd 
+    
+    O lock é associado a um item de dados 
+    
+    Lock binario 
+      o bloqueio tera dois estados. Bloqueado e Desbloqueado 
+      x é um item do banco de dados 
+      lock(x)-=1 --- significa que aquele item nao sera liberado para outras transações acessarem
+      lock(x)-=0 --- significa que aquele item sera liberado para outras transações acessarem
+      lockitem(x)--- Se o item estiver desbloqueado, bloquaia o item. se não esperar o regisstro estar desbloquado.
+      unlockitem(x)--- Se o item estiver 
+  
+  
+    A lock_table é responsável por controlar quais itens do BD estão bloquados ou nao . normalmente é uma tabela hash
+      É esa tabela que o modulo de concorrencia do banco de dadso utiliza para montar a ordem das transações 
+      
