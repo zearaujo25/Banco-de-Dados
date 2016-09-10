@@ -19,10 +19,18 @@ Schedule- Ordem o qual as açcoes serao tomadas.
       x é um item do banco de dados 
       lock(x)-=1 --- significa que aquele item nao sera liberado para outras transações acessarem
       lock(x)-=0 --- significa que aquele item sera liberado para outras transações acessarem
-      lockitem(x)--- Se o item estiver desbloqueado, bloquaia o item. se não esperar o regisstro estar desbloquado.
-      unlockitem(x)--- Se o item estiver 
-  
-  
-    A lock_table é responsável por controlar quais itens do BD estão bloquados ou nao . normalmente é uma tabela hash
-      É esa tabela que o modulo de concorrencia do banco de dadso utiliza para montar a ordem das transações 
+      lockitem(x)--- Se o item estiver desbloqueado, bloquaia o item. se não esperar o regisstro estar desbloquado, para bloquea-lo novamente
+      unlockitem(x)--- Se o item estiver desbloquia o item. muda o estado de lock(x) para 0 e vai na fila de transações acordar aquela que é a proxima 
+      Essas funçoes (lock e unlock) precisam ser indivisivel.Precisam ser operações atomicas, onde se realiza a ação por inteiro ou não realiza de maniera alguma 
       
+      Regras de bloqueio binario 
+        Toda operação feita encima do banco de dados é necessário realizar uma operação de lock item, seja uperação de leitura ou de escrita. 
+         Ao final de toda operação de bancos de dados, seja de read ou de write, precisam ser feito o unlock desse item 
+         Não sera feito lock em itens bloquados
+         Nao sera feito unclock em cima de de itens desbloquados
+  
+        A lock_table é responsável por controlar quais itens do BD estão bloquados ou nao . normalmente é uma tabela hash
+          É esa tabela que o modulo de concorrencia do banco de dadso utiliza para montar a ordem das transações 
+        Problemas do bloqueio binario 
+          É oito ou oitenta. No maximo um item pode manter o bloquio encima de um item. Para casos onde há diversas operações de leitura, esse lock seria feita de maneira excessiva 
+        
