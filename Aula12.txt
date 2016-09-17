@@ -34,3 +34,36 @@ Schedule- Ordem o qual as açcoes serao tomadas.
         Problemas do bloqueio binario 
           É oito ou oitenta. No maximo um item pode manter o bloquio encima de um item. Para casos onde há diversas operações de leitura, esse lock seria feita de maneira excessiva 
         
+        
+      Conceitosw de recuperação de banco de dadso
+        Estado do banco de dados 
+          situação, os dadso no banco em um dado momento 
+        Restauradr um banco significa voltar a um esado valido, um estado CONSISTENTE
+        mecanismos de recucperação 
+          Serve para voltar o banco de dados a um estado valido apos um falha ocorrer
+          Manter as propriedades do ACID
+            Atomicidae
+              garantir que cada transação opere de forma atomica, de forma que seja processada por inteiriro ou nao processada de forma alguma
+            Consitencia 
+              ao mudar o banco de dados de um  estado para outro, manter o banco em estados validos
+            Isolamento
+              Garantir que uma transação nao afete outra
+            Durabilidade
+              Quando uma transação termina, se ela emitir um commit (sinalq ue a transação manda para o banco de dados dizendo que ela terminou). Garatnri que os dadso vao para o disco 
+                Se uma transação da um commit o dado vai para o disco ? 
+                  NÃO , pois o banco de dados trabalha com bufferrs. A tranferencia e para o buffer
+                  Commit e Syncpoint 
+                    Commit age nos buffers de dados. O syncpoint leva do buffer para o disco(flush)
+          Log
+            Registros das MUDANÇAS que ocorre no banco de dados ao longo do tempo 
+            muito utilizado pelo SGBD
+            a log e arquivo sequencial e pequeno,. e gravada sempre em disco, mas por causa dessas propriendades , ela age de maneira rapida
+            Sem log nao se recupera o banco de dados
+            Procolo write-ahead-logging 
+              Qualquer sinal que a transação emite , é gravado primeiro na log, depois no banco dde dados
+            qual a organização do arquivo log? 
+              Sequencial!!!!!!!!!!!!!!!!!!!!
+            Registros da log 
+          Back up
+            Usados em caso de catastrofe 
+          
