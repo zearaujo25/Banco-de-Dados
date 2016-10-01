@@ -4,6 +4,7 @@ Unidade 14- Otimização de consultas (Cap 19 Navathe
     Se escreve apenas o que se quer na lnguagem 
     Se faz um declaração dizendo o que se quer 
     Se faz uma pergunta ao SGBD 
+    precupa-se com o " que" e nao "como"
   Palavras reservadas da linguagens sao chamadas de tokens 
   Ligação com compiladores 
     Analise Lexica 
@@ -28,3 +29,37 @@ Unidade 14- Otimização de consultas (Cap 19 Navathe
     usando ALGEBRA RELACIONAL 
     O gerenciador tranforma a query em uma ARVORE DE CONSULTA. 
       analisando essa arvore, tenta gerar uma arovre equivalente que tenha uma melhor performance 
+      As folhas sao as tabelas, as relaçoes, e os nos internos sao as operaçoes 
+    Usa-se a algebra relacional opor que tranforma a DECALRAÇÃO EM UM PROCESSO
+    Qual o papel do otimizador ?
+      Estabelece uma arvore de consulta inicial com base na algebra relacional
+      Depois com base nas heuristicas e estaticas do hisotrico (armazenados no catálogo) ele tenta gerar uma outra arvore equivalente mas com uma performance melhor
+  Algoritmos para seleção 
+    Lembrar que seleção e a operação sigma , que seleciona linhas da tabela 
+    Para localizar os registros filtrados usa-se os algoritmos de pesquisa aprendidos anteriormeten 
+    Seleciona aquele que for melhor para aquela situação 
+  Algoritmos para operação de join 
+    Loop aninhado 
+      Força bruta. combina a linha de uma tabela e combina com todas as outras.
+    Unico loop
+      quando ha um indice para os atributos de junção (nao muito detalhado para nos
+  Algoritmos de projeção 
+    So decartar e tirar duplicadas
+  Heuristicas para otimiazação de consultas 
+    chute baseado na experiencia do passado .
+    Corretude 
+      O quão correto que aquele  algoritmo é , para todas as saidas geradas para qualquer entrada
+      Mas nao é por que gera um resutlado errado que necessariamente se descarta um dado algoritmo. se ele gerar um resultado proximo do que é necessario 
+    Nearest neighbor 
+      O proximo sempre é o o cara mais proximo 
+      Os caminhos gerados por essa heurisitcas nem semopre sao os melhores. ha sempre uma marghem de erro
+      A opção para se ter um melhor seria a busca exaustiva , no entanto é um algoritmo muito tenso 
+     Heuristicas são algoritmos que nao resolvem o problema, mas entregam uma solução aproximada !!!!!! 
+     Grande problema da heuristca: 
+      Nao garante que seu problema irá se resolver 
+     Heuristica mais usado em BD 
+      JUNÇÃO SEMPRE SERA FEITA DEPOIS DA SELEÇÃO E DA PROJEÇÃO 
+    Arvore de consulta 
+      Nos internos: Operações 
+      Nos externos : Relações 
+      O GBD analisa a consulta , gera uma expressão da algebra relacional . Gera uma arvore. Analisa essa arvore, e monta uma supostamente com melhor performance com base em heurisitcas 
