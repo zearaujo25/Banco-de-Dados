@@ -1,0 +1,30 @@
+Unidade 14- Otimização de consultas (Cap 19 Navathe
+  Quando um consulta e escrita em SQL , escreve-se em uma linguagem de alto novel. SWL é uma linguagem declarativa 
+  Linguagem declarativa 
+    Se escreve apenas o que se quer na lnguagem 
+    Se faz um declaração dizendo o que se quer 
+    Se faz uma pergunta ao SGBD 
+  Palavras reservadas da linguagens sao chamadas de tokens 
+  Ligação com compiladores 
+    Analise Lexica 
+      Detecta se os tokens estao validos 
+    Analise sintatica 
+      Analisa se a estrutura sintatica dos comandos está valida 
+    Analise semantica 
+      Ve se faz sentido o que esta sendo pedido 
+  Otimizador de consultas  
+    Procura tornar a consulta feita mais rapida
+    Por exemplo verifica se utilizar indices é mais vantajoso
+    Contudo , se a consulta for muito complexa, o otimizador pode demorar demais para achar a solução otima 
+    O otimizador precisa realizar uma estrategia de execução  ou plano de execução
+    Verifica quais operações devam ser feitas primeiro, outras que sao equivalentes , tudo com o objetivo de acelerar a velocidade de processamento
+    Fatores como quantidade de registros, quantidades de filtros e quais filtros usados
+    Logo existem diversas estrategias de execução 
+    Para evitar que se gaste muito tempo determinando qual query é a melhor , toma-se decisões com base em heuristicas e em estatisticas 
+    Por que demorar encontrar o plano otimo?
+      a obtençao do plano ideal pode exigir informações muito detalhadas, que podem nao estar no gerenciador. isso pode atrapalhar o gerenciador
+  Como o otimizador tomará a decisão para o plano de execução ?
+    Como rodaremos essa query?
+    usando ALGEBRA RELACIONAL 
+    O gerenciador tranforma a query em uma ARVORE DE CONSULTA. 
+      analisando essa arvore, tenta gerar uma arovre equivalente que tenha uma melhor performance 
