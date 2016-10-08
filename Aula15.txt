@@ -1,0 +1,29 @@
+15- Introdução às tecnicas de programação 
+  
+  Normalmente ao lidar com banco de dados , usamos ferramentas client .
+  Usamos uma interface Interativa!!!! E a ferramenta cleinte responsavel por interagir com o servidor
+  A interface interativa nao e para usuario!!!! é para o desenvolvedor 
+  para trabalhar com o usuario , iremos utilizar os programas de aplicação . Iremo mascar o banco de dados
+  Iremos embarcar o banco de dados 
+  As linguagens de programação normalmente nao possuem ligação direta com o SQL. para fazer issso ha tres tecnicas 
+    SQL embutido 
+      artificios que servem para enganar o compilador 
+      Coloca o comando na propria linguagem
+      Uma marcação indetifica o processo de sql. na pre compilaçao, os comandoss de sql sao subistiuidos por chamadas de funcao 
+      USA O PRE-PROCESSADOR 
+    API
+      Usada em ambientes distribuidos. 
+      Tambem chamados de Drivers.
+        ex: ODBC, JDBC
+      O proprio programador que chama o modulos 
+      É uma biblioteca de funções
+      Bibliotecas que são responsaveis por acessar os bancos de dados
+      
+      
+    Linguagem eespecifica de banco de dados
+      Linguagens que foram feitas para se trabalhar com o  banco de dados
+      Ex 
+        Transact SQL, PL/SQL
+      Vale a pena utilzia-las se voce estiver com aplicações espeficifas de banco de daddos
+ As duas primeriars tecnicas podem ocorrrer o seguinte problema: Divergencia de impedancia
+  Problemas com os tipos , e tamnahos de detipos de variavel entre o banco de dados e a lingaugem que esta sendo trabalhado 
